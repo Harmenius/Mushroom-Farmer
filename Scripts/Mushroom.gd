@@ -20,6 +20,7 @@ func _ready():
 	timer.connect("timeout", self, "_reproduce")
 	timer.autostart = true
 	add_child(timer)
+	randomize()  # Changes result of .shuffle()
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
@@ -32,7 +33,9 @@ func on_click():
 	MushroomGrid.delete(grid_x, grid_y)
 
 func _reproduce():
-	for direction in Direction:
+	var directions = Direction.keys()
+	directions.shuffle()
+	for direction in directions:
 		var dir = Direction[direction]
 		var new_x = grid_x + dir.x
 		var new_y = grid_y + dir.y
