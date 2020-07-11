@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Tiles.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Levels/Level2.tscn" type="PackedScene" id=4]
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+NextLevel = ExtResource( 4 )
+goal_money = 20
+time = 21
+grid_size = Vector2( 10, 10 )
+mushroom_time = 1
+start_mushroom = Vector2( 5, 5 )
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, 10 )
+
+[node name="UI" parent="." instance=ExtResource( 2 )]
