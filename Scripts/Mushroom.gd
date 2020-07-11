@@ -11,6 +11,7 @@ const Direction = {
 	South = Vector2(0,1), 
 	West = Vector2(-1,0)
 }
+onready var money_tracker = get_node("/root/Level/UI/MoneyLabel")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +28,7 @@ func _input_event(viewport, event, shape_idx):
 		self.on_click()
 
 func on_click():
+	money_tracker.add_money(1)
 	MushroomGrid.delete(grid_x, grid_y)
 
 func _reproduce():
