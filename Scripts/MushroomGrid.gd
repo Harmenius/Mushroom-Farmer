@@ -9,12 +9,6 @@ const GRID_LENGTH = 20
 var MUSHROOM_WAIT_TIME = 1
 var game_over = false
 
-func _ready():
-	for x in range(WIDTH):
-		grid.append([])
-		var row = grid[x]
-		for y in range(HEIGHT):
-			row.append(null)
 
 func make_mushroom(x, y):
 	if x == -1 or x == WIDTH or y == -1 or y == HEIGHT: # ON the edge
@@ -69,3 +63,24 @@ func delete(x, y):
 	var mushroom = grid[x][y]
 	grid[x][y] = null
 	mushroom.queue_free()
+
+func freeze():
+	for x in range(WIDTH):
+		for y in range(HEIGHT):
+			var mushroom = grid[x][y]
+			if is_instance_valid(mushroom):
+				mushroom.REPRODUCE_TIME = INF
+				mushroom.timer.set_wait_time(INF)
+				mushroom.timer.stop()
+
+func initialise(size: Vector2, mushroom_wait_time: float):
+	game_over = false
+	WIDTH = size.x
+	HEIGHT = size.y
+	MUSHROOM_WAIT_TIME = mushroom_wait_time
+
+	for x in range(WIDTH):
+		grid.append([])
+		var row = grid[x]
+		for y in range(HEIGHT):
+			row.append(null)

@@ -42,7 +42,6 @@ func _reproduce():
 		if _check_direction_free(new_x, new_y):
 			_create_mushroom(new_x, new_y)
 			return
-	print("NO REPRO")
 
 func _check_direction_free(new_x: int, new_y: int):
 	return MushroomGrid.check_free(new_x,new_y)
@@ -50,11 +49,3 @@ func _check_direction_free(new_x: int, new_y: int):
 func _create_mushroom(new_x: int, new_y: int):
 	print("Creating mushroom @(" + str(new_x) + "," + str(new_y) + ")")
 	MushroomGrid.make_mushroom(new_x, new_y)
-	pass
-	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-

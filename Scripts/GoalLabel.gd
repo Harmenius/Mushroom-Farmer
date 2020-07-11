@@ -10,4 +10,4 @@ func set_goal(new_goal):
 
 func check_victory(money):
 	if money >= goal:
-		get_node("/root/Level/UI").trigger_victory()
+		get_node("/root/Level").trigger_victory()

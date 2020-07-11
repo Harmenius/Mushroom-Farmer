@@ -24,4 +24,4 @@ func _tick():
 	time -= 1
 	text = str(time) + " sec"
 	if time <= 0:
-		get_node("/root/Level/UI").trigger_loss()
+		get_node("/root/Level").trigger_loss("Timeout")
