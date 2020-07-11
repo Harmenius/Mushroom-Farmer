@@ -10,3 +10,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func trigger_loss(reason: String):
+	if reason == "Out of Bounds":
+		get_node("UI").trigger_loss()
+	

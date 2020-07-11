@@ -3,7 +3,7 @@ class_name Mushroom
 
 export var grid_x: int = 0
 export var grid_y: int = 0
-const REPRODUCE_TIME = 3
+var REPRODUCE_TIME = 1
 const GRID_SIZE = 20
 const Direction = {
 	North = Vector2(0,-1),
@@ -12,10 +12,10 @@ const Direction = {
 	West = Vector2(-1,0)
 }
 onready var money_tracker = get_node("/root/Level/UI/MoneyLabel")
+onready	var timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var timer = Timer.new()
 	timer.set_wait_time(REPRODUCE_TIME)
 	timer.connect("timeout", self, "_reproduce")
 	timer.autostart = true
