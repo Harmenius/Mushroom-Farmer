@@ -14,6 +14,9 @@ func _ready():
 	get_node("UI").init_variables(start_money, goal_money, time)
 	MushroomGrid.initialise(grid_size, mushroom_time)
 	MushroomGrid.make_mushroom(start_mushroom.x, start_mushroom.y)
+	get_node("TileMap").WIDTH = grid_size.x
+	get_node("TileMap").HEIGHT = grid_size.y
+	randomize()  # Changes result of e.g. .shuffle()
 
 func trigger_loss(reason: String):
 	get_node("UI").trigger_loss()

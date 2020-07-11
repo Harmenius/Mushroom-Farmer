@@ -20,7 +20,7 @@ func _ready():
 	timer.connect("timeout", self, "_reproduce")
 	timer.autostart = true
 	add_child(timer)
-	randomize()  # Changes result of .shuffle()
+	get_node("/root/Level/UI/AudioStreamPlayer").play_pop()
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
@@ -31,6 +31,7 @@ func _input_event(viewport, event, shape_idx):
 func on_click():
 	money_tracker.add_money(1)
 	MushroomGrid.delete(grid_x, grid_y)
+	get_node("/root/Level/UI/AudioStreamPlayer").play_coins()
 
 func _reproduce():
 	var directions = Direction.keys()

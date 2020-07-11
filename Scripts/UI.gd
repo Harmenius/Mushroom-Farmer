@@ -6,6 +6,7 @@ func _ready():
 	get_node("RetryButton").connect("pressed", self, "_retry")
 	get_node("NextButton").hide()
 	get_node("NextButton").connect("pressed", self, "_next_level")
+	get_node("AudioStreamPlayer/Timer").wait_time = 0.9
 
 func trigger_victory():
 	get_node("MoneyLabel").text = "WIN WIN WIN WIN WIN WIN WIN WIN WIN"
@@ -20,6 +21,8 @@ func trigger_loss():
 	get_node("MoneyLabel").freeze()
 	get_node("TimerLabel/Timer").stop()
 	get_node("RetryButton").show()
+	get_node("AudioStreamPlayer/Timer").wait_time = 0.05
+	get_node("AudioStreamPlayer/Timer").stop()
 	
 	
 func init_variables(start_money, goal_money, time):
