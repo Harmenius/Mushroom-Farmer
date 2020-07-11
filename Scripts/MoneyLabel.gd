@@ -1,27 +1,25 @@
 extends Label
 
 export var money = 0
+var frozen = false
+onready var goal_tracker = get_node("/root/Level/UI/GoalLabel")
 
 func get_money():
 	return money
 	
 func set_money(new_money: int):
-	money = new_money
-	self.text = "$" + str(money)
+	if not frozen:
+		money = new_money
+		self.text = "       $" + str(money)
+		goal_tracker.check_victory(money)
 
 func add_money(added_money: int):
-	money += added_money
-	self.text = "$" + str(money)
+	var new_money = money + added_money
+	set_money(new_money)
 
 func sub_money(subtracted_money: int):
-	money -= subtracted_money
-	self.text = "$" + str(money)
+	var new_money = money - subtracted_money
+	set_money(new_money)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func freeze():
+	frozen = true

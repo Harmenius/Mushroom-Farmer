@@ -1,7 +1,7 @@
 extends Node
 
-export var X = 50
-export var Y = 50
+onready var X = get_viewport().get_size().x/2
+onready var Y = get_viewport().get_size().y/2
 export var WIDTH = 10
 export var HEIGHT = 10
 export var grid = []
@@ -18,7 +18,8 @@ func make_mushroom(x, y):
 	var mushroom = load("Scenes/Mushroom.tscn").instance()
 	mushroom.grid_x = x
 	mushroom.grid_y = y
-	mushroom.position = Vector2(X + GRID_LENGTH * x, Y + GRID_LENGTH * y)
+	mushroom.position = Vector2(X + GRID_LENGTH * (x-WIDTH/2),
+								Y + GRID_LENGTH * (y-HEIGHT/2))
 	grid[x][y] = mushroom
 	get_node("/root/Level").add_child(mushroom)
 

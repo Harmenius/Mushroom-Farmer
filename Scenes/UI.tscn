@@ -1,12 +1,32 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/UI/MoneyLabel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/UI/GoalLabel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/UI.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/UI/TimerLabel.tscn" type="PackedScene" id=4]
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MoneyLabel" parent="." instance=ExtResource( 1 )]
+margin_left = 29.4737
+margin_right = 143.474
+
+[node name="GoalLabel" parent="." instance=ExtResource( 2 )]
+margin_left = 20.0
+margin_top = 60.0
+margin_right = 302.0
+margin_bottom = 125.0
+
+[node name="TimerLabel" parent="." instance=ExtResource( 4 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -103.211
+margin_top = 22.1053
+margin_right = -24.2106
+margin_bottom = 55.1053
