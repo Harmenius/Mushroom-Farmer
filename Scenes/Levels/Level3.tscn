@@ -3,16 +3,16 @@
 [ext_resource path="res://Scripts/Level.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Tiles.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Levels/Level3.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Levels/EndScreen.tscn" type="PackedScene" id=4]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
 NextLevel = ExtResource( 4 )
-goal_money = 20
+goal_money = 40
 time = 21
-grid_size = Vector2( 10, 10 )
-mushroom_time = 3
-start_mushrooms = [ Vector2( 5, 5 ) ]
+grid_size = Vector2( 20, 10 )
+mushroom_time = 2
+start_mushrooms = [ Vector2( 5, 5 ), Vector2( 15, 5 ) ]
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 10 )
