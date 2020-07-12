@@ -12,7 +12,7 @@ goal_money = 40
 time = 21
 grid_size = Vector2( 20, 10 )
 mushroom_time = 2
-start_mushrooms = [ Vector2( 5, 5 ), Vector2( 15, 5 ) ]
+start_mushrooms = [ Vector2( 7, 5 ), Vector2( 14, 5 ) ]
 
 [node name="TileMap" parent="." instance=ExtResource( 3 )]
 position = Vector2( 0, 10 )

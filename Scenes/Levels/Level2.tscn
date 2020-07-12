@@ -10,7 +10,7 @@ script = ExtResource( 1 )
 NextLevel = ExtResource( 4 )
 goal_money = 20
 time = 21
-grid_size = Vector2( 10, 10 )
+grid_size = Vector2( 11, 11 )
 mushroom_time = 3
 start_mushrooms = [ Vector2( 5, 5 ) ]
 

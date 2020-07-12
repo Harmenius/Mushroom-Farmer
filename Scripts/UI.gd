@@ -9,15 +9,13 @@ func _ready():
 	get_node("AudioStreamPlayer/Timer").wait_time = 0.9
 
 func trigger_victory():
-	get_node("MoneyLabel").text = "WIN WIN WIN WIN WIN WIN WIN WIN WIN"
-	get_node("GoalLabel").text = "WIN WIN WIN WIN WIN WIN WIN WIN WIN"
+	get_node("GoalLabel").text = "WIN"
 	get_node("MoneyLabel").freeze()
 	get_node("TimerLabel/Timer").stop()
 	get_node("NextButton").show()
 	
 func trigger_loss():
-	get_node("MoneyLabel").text = "LOSE LOSE LOSE LOSE LOSE LOSE LOSE LOSE LOSE"
-	get_node("GoalLabel").text = "LOSE LOSE LOSE LOSE LOSE LOSE LOSE LOSE LOSE"
+	get_node("GoalLabel").text = "LOSE"
 	get_node("MoneyLabel").freeze()
 	get_node("TimerLabel/Timer").stop()
 	get_node("RetryButton").show()
