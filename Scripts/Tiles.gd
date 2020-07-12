@@ -6,14 +6,17 @@ extends TileMap
 # var b = "text"
 var WIDTH = 10
 var HEIGHT = 10
-enum Tiles {GRASS_TILE,
+enum Tiles {GRASS_TILE1,
+			GRASS_TILE2,
+			GRASS_TILE3,
+			GRASS_TILE4,
 			HORIZONTAL_FENCE,
 			VERTICAL_FENCE,
-			GRASS_TILE2,
 			CORNER_WS,
 			CORNER_ES,
 			CORNER_EN,
 			CORNER_WN}
+var N_GRASS_TILES = 4
 
 func initialise():
 	position = get_viewport().get_size()/2 \
@@ -21,7 +24,9 @@ func initialise():
 			 - Vector2(10,10)  # Half a tile
 	for x in range(WIDTH):
 		for y in range(HEIGHT):
-			set_cell(x, y, Tiles.GRASS_TILE)
+			var tile = randi()%N_GRASS_TILES
+			var flip = Vector2(randi()%2, randi()%2)
+			set_cell(x, y, tile, flip.x, flip.y)
 	
 	for x in range(WIDTH):
 		set_cell(x, HEIGHT, Tiles.HORIZONTAL_FENCE)

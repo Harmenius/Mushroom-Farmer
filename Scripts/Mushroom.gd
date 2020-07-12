@@ -11,7 +11,6 @@ const Direction = {
 	South = Vector2(0,1), 
 	West = Vector2(-1,0)
 }
-onready var money_tracker = get_node("/root/Level/UI/MoneyLabel")
 onready	var timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +20,10 @@ func _ready():
 	timer.autostart = true
 	add_child(timer)
 	get_node("/root/Level/UI/AudioStreamPlayer").play_pop()
+	get_node("Sprite").texture = load("Assets/Visuals/" + 
+									  ["Red-white1.png","Red-white2.png"][randi()%2])
+	get_node("Sprite").rotate(randi()%4 / 2 * PI)
+	get_node("Sprite").flip_h = randi()%2 == 1
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
@@ -29,8 +32,12 @@ func _input_event(viewport, event, shape_idx):
 		self.on_click()
 
 func on_click():
-	money_tracker.add_money(1)
 	MushroomGrid.delete(grid_x, grid_y)
+	
+	if not has_node("/root/Level/UI/MoneyLabel"):
+		return  # Not in a level
+	var money_label = get_node("/root/Level/UI/MoneyLabel")
+	money_label.add_money(1)
 	get_node("/root/Level/UI/AudioStreamPlayer").play_coins()
 
 func _reproduce():

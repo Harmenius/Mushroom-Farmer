@@ -18,7 +18,6 @@ func _ready():
 	get_node("TileMap").WIDTH = grid_size.x
 	get_node("TileMap").HEIGHT = grid_size.y
 	get_node("TileMap").initialise()
-	randomize()  # Changes result of e.g. .shuffle()
 
 func trigger_loss(reason: String):
 	get_node("UI").trigger_loss()
