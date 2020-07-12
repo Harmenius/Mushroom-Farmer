@@ -1,7 +1,8 @@
-extends Node2D
+extends CanvasLayer
 
 var grid_size = Vector2(51, 31)
-var mushroom_time = INF
+var mushroom_time = 3
+export var is_startscreen = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -10,10 +11,14 @@ func _ready():
 	get_node("TileMap").WIDTH = grid_size.x
 	get_node("TileMap").HEIGHT = grid_size.y
 	get_node("TileMap").initialise()
+	get_node("UI/AudioStreamPlayer/Timer").wait_time = 0.1
 	randomize()  # Changes result of e.g. .shuffle()
 	
-	for level_name in ["Level1", "Level2", "Level3"]:
-		get_node("UI/Button" + level_name).connect("pressed", self, "start_level", [level_name])
+	if is_startscreen:
+		for level_name in ["Level1", "Level2", "Level3"]:
+			get_node("UI/Button" + level_name).connect("pressed", self, "start_level", [level_name])
+	else:
+		MushroomGrid.game_over = true
 
 func _make_mushroom():
 	var x = randi()%int(grid_size.x)

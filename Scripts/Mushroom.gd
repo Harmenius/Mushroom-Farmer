@@ -35,7 +35,9 @@ func on_click():
 	MushroomGrid.delete(grid_x, grid_y)
 	
 	if not has_node("/root/Level/UI/MoneyLabel"):
+		get_node("/root/Level/UI/AudioStreamPlayer").play_bite()
 		return  # Not in a level
+
 	var money_label = get_node("/root/Level/UI/MoneyLabel")
 	money_label.add_money(1)
 	get_node("/root/Level/UI/AudioStreamPlayer").play_coins()
