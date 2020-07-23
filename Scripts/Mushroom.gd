@@ -27,7 +27,8 @@ func _ready():
 	get_node("Sprite").flip_h = randi()%2 == 1
 
 func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton \
+	if (event is InputEventMouseButton \
+	or event is InputEventScreenTouch) \
 	and event.button_index == BUTTON_LEFT \
 	and event.is_pressed():
 		self.on_click()
