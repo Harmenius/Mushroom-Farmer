@@ -5,7 +5,7 @@ onready var Y = get_viewport().get_size().y/2
 export var WIDTH = 10
 export var HEIGHT = 10
 export var grid = []
-const GRID_LENGTH = 20
+const GRID_LENGTH = 40
 var MUSHROOM_WAIT_TIME = 1
 var game_over = false
 

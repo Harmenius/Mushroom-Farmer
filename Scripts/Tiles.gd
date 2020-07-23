@@ -4,6 +4,8 @@ extends TileMap
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var TILE_WIDTH = 40
+var TILE_HEIGHT = 40
 var WIDTH = 10
 var HEIGHT = 10
 enum Tiles {GRASS_TILE1,
@@ -20,8 +22,8 @@ var N_GRASS_TILES = 4
 
 func initialise():
 	position = get_viewport().get_size()/2 \
-	 		 - Vector2(WIDTH, HEIGHT)/2*20 \
-			 - Vector2(10,10)  # Half a tile
+	 		 - Vector2(WIDTH * TILE_WIDTH, HEIGHT * TILE_HEIGHT)/2 \
+			 - Vector2(TILE_WIDTH, TILE_HEIGHT)/2  # Half a tile
 	for x in range(WIDTH):
 		for y in range(HEIGHT):
 			var tile = randi()%N_GRASS_TILES
