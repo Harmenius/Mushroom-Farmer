@@ -6,7 +6,7 @@ func _ready():
 	get_node("RetryButton").connect("pressed", self, "_retry")
 	get_node("NextButton").hide()
 	get_node("NextButton").connect("pressed", self, "_next_level")
-	get_node("AudioStreamPlayer/Timer").wait_time = 0.9
+	get_node("AudioStreamPlayer/Timer").wait_time = 0.01
 	var music_handler = get_node("MusicHandler")
 	music_handler.connect("finished", music_handler, "play")
 

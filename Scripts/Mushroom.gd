@@ -11,11 +11,12 @@ const Direction = {
 	South = Vector2(0,1), 
 	West = Vector2(-1,0)
 }
-onready	var timer = Timer.new()
+onready var timer = Timer.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.set_wait_time(REPRODUCE_TIME)
+	var wait_time = REPRODUCE_TIME * (0.8 + fmod(randf(), 0.4))
+	timer.set_wait_time(wait_time)
 	timer.connect("timeout", self, "_reproduce")
 	timer.autostart = true
 	add_child(timer)
@@ -57,5 +58,4 @@ func _check_direction_free(new_x: int, new_y: int):
 	return MushroomGrid.check_free(new_x,new_y)
 
 func _create_mushroom(new_x: int, new_y: int):
-	print("Creating mushroom @(" + str(new_x) + "," + str(new_y) + ")")
 	MushroomGrid.make_mushroom(new_x, new_y)
