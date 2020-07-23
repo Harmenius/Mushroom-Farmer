@@ -2,7 +2,6 @@ extends CanvasLayer
 
 
 func _ready():
-	get_node("RetryButton").hide()
 	get_node("RetryButton").connect("pressed", self, "_retry")
 	get_node("NextButton").hide()
 	get_node("NextButton").connect("pressed", self, "_next_level")
@@ -14,13 +13,13 @@ func trigger_victory():
 	get_node("GoalLabel").text = "WIN"
 	get_node("MoneyLabel").freeze()
 	get_node("TimerLabel/Timer").stop()
+	get_node("RetryButton").hide()
 	get_node("NextButton").show()
 	
 func trigger_loss():
 	get_node("GoalLabel").text = "LOSE"
 	get_node("MoneyLabel").freeze()
 	get_node("TimerLabel/Timer").stop()
-	get_node("RetryButton").show()
 	get_node("AudioStreamPlayer/Timer").wait_time = 0.05
 	get_node("AudioStreamPlayer/Timer").stop()
 	
