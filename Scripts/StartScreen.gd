@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var grid_size = Vector2(51, 31)
-var mushroom_time = 3
+export var mushroom_time = INF
 export var is_startscreen = true
 
 # Called when the node enters the scene tree for the first time.
@@ -17,6 +17,7 @@ func _ready():
 	if is_startscreen:
 		for level_name in ["Level1", "Level2", "Level3"]:
 			get_node("UI/Button" + level_name).connect("pressed", self, "start_level", [level_name])
+		MushroomGrid.game_over = true
 	else:
 		MushroomGrid.game_over = true
 

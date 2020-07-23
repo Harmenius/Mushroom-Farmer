@@ -7,6 +7,8 @@ func _ready():
 	get_node("NextButton").hide()
 	get_node("NextButton").connect("pressed", self, "_next_level")
 	get_node("AudioStreamPlayer/Timer").wait_time = 0.9
+	var music_handler = get_node("MusicHandler")
+	music_handler.connect("finished", music_handler, "play")
 
 func trigger_victory():
 	get_node("GoalLabel").text = "WIN"
